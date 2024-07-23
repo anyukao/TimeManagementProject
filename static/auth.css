@@ -1,0 +1,150 @@
+@font-face{
+    font-family: 'Ashkana';
+    src: url("./mktudyx3g7hvu3b1euiinkspif.ttf")
+}
+#login-form {
+    width: 1024px;
+
+
+    margin: auto;
+    margin-top: 20px;
+
+}
+
+
+#phone-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    /* Добавляем границу между инпутами */
+}
+
+#phone-prefix {
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    /* Фон серого цвета */
+    padding: 5px;
+    margin-right: -1px;
+    width: 20%;
+    font-size: 16px;
+    /* Убираем правый отступ, чтобы создать впечатление одной границы */
+}
+
+#phone-input {
+    width: 80%;
+    border: 1px solid #ccc;
+    /* Добавляем границу инпуту с номером */
+    outline: none;
+    background-color: transparent;
+    font-size: 16px;
+    padding: 5px;
+}
+
+
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlay1 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay1:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 25%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: 'Ashkana', Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #ffee00;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+
+
+.send_message {
+    background-color: #333333;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+ 
+    font-size: 16px;
+}
+
+.send_message:hover {
+    background-color: #414141c0;
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
+    }
+
+    .popup {
+        width: 70%;
+    }
+}

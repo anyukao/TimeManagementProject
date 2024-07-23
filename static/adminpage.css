@@ -1,0 +1,785 @@
+@import url("/static/home/css/fonts.css");
+body{
+    margin:50px;
+    margin-top:5px;
+    font-family: 'Mulish';
+    font-size: 15px;
+}
+.loginout{
+  display: flex;
+  margin-bottom:10px;
+  justify-content: end;
+  align-items: center;
+}
+.fioo{
+  font-weight: 600;
+}
+/* .icconnperson{
+  margin-right: 10px;
+} */
+.textlogout{
+  text-decoration: none;
+  color: rgb(43, 42, 42);
+  letter-spacing:1px;
+  background-color: rgb(213, 213, 213);
+  border-radius: 5px;
+  padding: 10px 10px;
+  margin-left: 15px;
+  font-weight: 600;
+}
+#iconn{
+ font-size: 25px;
+}
+.title1{
+  margin:0px;
+  font-size: 35px;
+  color: rgb(1, 36, 26);
+}
+.textbow{
+  font-size: 17px;
+  color:rgba(100, 116, 139, 1);
+}
+.first1{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 0%;
+  /* width: 1302px;*/
+  height: 90px; 
+}
+.firstelementinfirst1{
+  display: grid;
+  grid-template-rows: 61% 39%;
+  grid-gap: 0%;
+}
+.secondelementinfirst1{
+  display: flex;
+margin: auto;
+margin-right:0px ;}
+
+.buttonss{
+  width: 229px;
+  height: 44;
+  position: relative;
+  margin-left: 16px;
+  background-color: rgb(23, 148, 112);
+  color: white;
+  border-radius: 5px;
+  border: 0px;
+}
+.buttonss:hover{
+  background-color: rgb(23, 134, 102);
+  transition: background-color 0.6s ease;
+}
+.buttonssWithout{
+  width: 229px;
+  height: 44;
+  position: relative;
+  margin-left: 16px;
+  background-color: rgba(4, 120, 87, 0);
+  color: rgb(10, 10, 10);
+  border-radius: 5px;
+  border: 0.1;
+  border-style: solid;
+  border-color: rgb(227, 227, 227);
+}
+#TextIntoCor{
+  margin: 0px 0px;
+  font-size: 14px;
+  font-weight: 100;
+  letter-spacing:1px;
+}
+#TextIntoButton{
+  font-family: 'Mulish';
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing:1px;
+  margin: 0px 0px;
+}
+#TextIntoButton1{
+  font-size: 16px;
+  letter-spacing:1px;
+  margin: 0px 0px;
+}
+
+
+/* FILTER */
+
+.filter0{
+  width: 100px;
+  height: 35;
+  position: relative;
+  margin-left: 16px;
+  background-color: rgba(255, 255, 255, 1);
+  color:rgba(100, 116, 139, 1);
+  border-radius: 5px;
+  border: 0;
+  border-style: solid;
+  border-color: rgb(227, 227, 227);
+}
+
+
+
+    /* Correction */
+    .correct{
+      text-align: right;
+      margin-top:16px;
+      margin-bottom: 16px;
+    }
+    .buttonCor{
+      width: 170px;
+      height: 40px;
+      position: relative;
+      margin-left:auto 0;
+      background-color: rgb(23, 148, 112);
+      color: white;
+      border-radius: 5px;
+      border: 0px;
+    }
+   
+   
+   
+    #buttonCorId{
+      margin-top: 16px;
+    }
+    .buttonCor:hover{
+      background-color: rgb(23, 134, 102);
+      transition:  0.6s ease;
+    }
+    
+.second{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 0%;
+  background-color: rgba(247, 248, 249, 1);
+  height: 64px;
+}
+.second1{
+  margin: auto;
+  margin-left:10px
+}
+.second2{
+  margin: auto;
+  margin-right:10px ;
+}
+.table{
+  margin-top: 40px;
+}
+.column{
+  display: grid;
+  grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+  grid-gap: 0%;
+  border-bottom: 2px solid rgba(231, 234, 238, 1); /* Белая рамка */ ;
+  height: 40px;
+  margin: auto;
+  margin-top:0px
+}
+
+.column_data{
+  display: grid;
+  align-items: start;
+  grid-template-columns: 17% 83%;
+  grid-gap: 0%;
+  border-bottom: 2px solid rgba(231, 234, 238, 1); /* Белая рамка */ ;
+  /* height: 40px; */
+  margin: auto;
+  margin-top:0px
+}
+
+.column_info{
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 100%;
+  grid-gap: 0%;
+  border-bottom: 2px solid rgba(231, 234, 238, 1); /* Белая рамка */ ;
+  /* height: 40px; */
+  margin: auto;
+  margin-top:0px
+}
+
+.column_set{
+  display: grid;
+  grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6%;
+  grid-gap: 0%;
+  border-bottom: 2px solid rgba(231, 234, 238, 1); /* Белая рамка */ ;
+  /* height: 40px; */
+  margin: auto;
+  margin-top:0px
+}
+
+
+
+
+/* БЛОК ДЛЯ ДОБАВЛЕНИЯ СОТРУДНИКА */
+.popup{
+  display: none;
+  position: fixed;
+  z-index: 5;
+  left:0;
+  top:0;
+  width:100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.863);
+  padding: 4% 4.5%;
+}
+.adduserBlock{
+  background-color: rgba(255, 255, 255, 0.982);
+  border-radius: 15px;
+  font-size: 10px;
+  font-family: 'Mulish';
+  display: none;
+  position: fixed;
+  z-index: 5;
+  width: 90%;
+  overflow: auto;
+  padding-right: 15px;
+  justify-content: center;
+  height: 600px;
+}
+.closeDiv{
+  text-align: left;
+  font-size: 30px;
+  margin-top: 24px;
+  margin-left: 20px;
+  font-weight: 900;
+  border: 0px;
+  background-color: rgba(240, 248, 255, 0);
+}
+.titleAddEmp{
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: rgb(85, 95, 90);
+}
+.close {
+  cursor: pointer;
+  font-size: 30px;
+  color: black;
+}
+
+.enterr{
+  margin-bottom: 50px;
+}
+.columnAdd{
+  margin-left: 10px;
+  display: flex;
+  gap: 25px;
+}
+.columnAdded{
+  display: flex;
+  gap: 52px;
+  margin-left: 40px;
+ 
+}
+.clicked {
+  background-color: rgba(227, 229, 229, 0.87);
+}
+.closs{
+  margin-top: 20px;
+  color:rgb(10, 69, 52);
+}
+.reblock{
+margin: 10px 50px 50px;
+}
+.DATAR{
+  margin-left: -2px;
+}
+.inncc{
+  margin-left: -12px;
+}
+.valAddU{
+  font-size:15px;
+  border: 0;
+  outline: 0;
+  outline-offset: 0;
+  border-radius: 5px;
+  background-color: rgba(227, 229, 229, 0.87);
+  height: 35px;
+  padding: 0px 15px;
+  width: 230px;
+ 
+}
+
+
+
+
+
+
+
+
+
+
+.tt{
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 16px;
+}
+.valAddU2{
+  font-size:15px;
+  border: 0;
+  outline: 0;
+  outline-offset: 0;
+  height: 35px;
+  background-color: inherit;
+}
+.datt{
+  width: 200px;
+}
+.buttonCreateUser{
+  width: 130px;
+  height: 35px;
+  position: relative;
+  margin-left:auto 0;
+  background-color: rgb(23, 148, 112);
+  color: white;
+  border-radius: 5px;
+  border: 0px;
+  
+}
+.buttonCreateUser:hover{
+  background-color: rgb(23, 134, 102);
+  transition:  0.6s ease;
+}
+.columnAddTitle{
+  display: flex;
+  gap:150px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+
+}
+.nam{
+  margin-left: 75px;
+}
+.nbf{
+  margin-left: 120px;
+}
+.headcolumnAdd{
+  font-size:17px;
+  color: rgb(73, 73, 73);
+  font-weight:700;
+  letter-spacing:1px;
+  padding-left: 10px;
+}
+.counterr{
+  width: 50px;
+  padding: 0;
+}
+
+.seteditdata{
+  background-color: transparent;
+}
+.seteditdata:hover{
+  background-color: rgba(227, 229, 229, 0.87);
+  transition: 1s;
+}
+.Overflwblock{
+  height: 480px;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+.lineblock{
+  height: 1.5px;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  background-color:rgb(23, 134, 102);
+}
+.setidedit{
+  width: 200px;
+}
+.firstblockedit{
+  margin-top: 30px;
+}
+.edittingset{
+  margin-left: 70px;
+  margin-top: 10px;
+}
+.datee{
+  width: 25px;
+  border: none;
+  margin-top: -25px;
+  font-size: 20px;
+  margin-left: -30px;
+  background-color: transparent;
+  outline: none;
+}
+
+.enterrup{
+ padding-top: 10px;
+ padding-bottom: 10px;
+
+}
+.ll{
+  cursor: pointer;
+}
+.labAdd{
+  font-size:16px;
+}
+.saveAddUserButton{
+  margin: auto;
+  text-align: end;
+}
+input[type="date"]{
+  font-family: 'Mulish';
+}
+.korzina{
+  margin: auto;
+  font-size:16px;
+  color:rgb(126, 126, 126) ;
+}
+.korzina:hover{
+  color:rgb(17, 17, 17) ;
+
+  transition:  0.6s ease;
+}
+.edittt{
+  width: 150px;
+  height: 35px;
+
+}
+.buttonseditt{
+  margin-top: 20px;
+  width: 100%;
+  text-align: end;
+  margin-bottom: 20px;
+}
+.table1{
+  margin-top: 40px;
+}
+.cencell{
+  width: 170px;
+  height: 40px;
+  padding: 7px 40px;
+  padding-bottom: 9px;
+  position: relative;
+  margin-left:auto 0;
+  background-color: rgba(97, 97, 97, 0.663);
+  color: white;
+  border-radius: 5px;
+  border: 0px;
+  margin-right: 100px;
+  cursor: pointer;
+}
+.modaledit{
+
+  width: 100%;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: #fff; /* Фон модального окна */
+border: 1px solid #ccc; /* Граница модального окна */
+z-index: 1000; /* Выше других элементов */
+text-align: center;
+border-radius: 10px;
+}
+ #parentmodaledit {
+        display: none;
+    }
+.parentmodaledit{
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Цвет затемнения с прозрачностью */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+
+
+#myModal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Цвет затемнения с прозрачностью */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.buttonsdell{
+  display: flex;
+  justify-content: center;
+  gap:50px;
+  margin-top: 60px;
+}
+.contentdell{
+text-align: left;
+}
+.modal-content{
+width: 600px;
+padding: 30px 30px;
+height: 300px;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: #fff; /* Фон модального окна */
+border: 1px solid #ccc; /* Граница модального окна */
+z-index: 1000; /* Выше других элементов */
+text-align: center;
+border-radius: 10px;
+
+}
+.cenceldel{
+  border: 1px solid rgb(77, 36, 36);
+  width: 300px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+.delMyModal{
+  border: 0;
+  outline: none;
+  font-size: 16px;
+  background-color: rgba(217, 45, 32, 1);
+  color: rgba(255, 255, 255, 1);
+  width: 300px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 8px;
+}
+.delMyModal:hover{
+  background-color: rgba(217, 44, 32, 0.901);
+  transition: 1s;
+}
+.questiondel{
+  font-size: 20px;
+  font-weight: 600;
+}
+.editing{
+  margin: auto;
+  font-size:16px;
+  color:rgb(126, 126, 126);
+}
+.editing:hover{
+  color:rgb(17, 17, 17) ;
+
+  transition:  0.6s ease;
+}
+.editable {
+  border: 1px solid rgb(151, 149, 149);
+}
+
+
+
+
+
+
+.column1{
+  display:flex;
+  gap:80px;
+  border-bottom: 2px solid rgba(231, 234, 238, 1); /* Белая рамка */ ;
+  height: 40px;
+  margin: auto;
+  margin-top:0px
+}
+
+.column2{
+  display: grid;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-gap: 0%;
+  border-bottom: 2px solid rgba(231, 234, 238, 1); /* Белая рамка */ ;
+  height: 40px;
+  margin: auto;
+  margin-top:0px
+}
+#columnInp{
+  /* min-height: 50px; */
+}
+.valInp{
+  font-size:16px;
+  border: 0;
+  outline: 0;
+  outline-offset: 0;
+}
+.haedcolumn{
+  font-size:14px;
+  color: rgba(100, 116, 139, 1);
+  font-weight:600;
+  letter-spacing:1px;
+}
+.attana{
+  color: red;
+  font-size: 24px;
+}
+.firstdivatt{
+padding: 6px 6px;
+width: 39px;
+background-color:rgba(254, 243, 242, 1) ;
+border-radius: 100px;
+margin-bottom: 30px;
+}
+.seconddivatt{
+padding: 8px 8px;
+border-radius: 100px;
+background-color: rgba(254, 228, 226, 1);
+}
+.activeDiv{
+margin: auto;
+margin-left:0px;}
+.active{
+border: 0;
+border-radius: 5px;
+background-color: rgba(236, 253, 245, 1);
+height: 22px;
+width: 150px;
+text-align: center;
+font-size:14px;
+outline: none;}
+.not{
+  background-color: rgb(253, 236, 236);
+}
+.pause{
+  background-color: rgb(253, 244, 236);
+}
+.confirm{
+  margin: auto;
+  text-align: center;
+}
+.confirminn{
+  margin: auto;
+  text-align: center;
+  margin-right:0px;
+}
+
+.first2{
+    display: flex;
+    margin-top:40px;
+    margin-bottom:40px;
+    border-bottom: 3px solid rgba(231, 234, 238, 1); /* Белая рамка */
+
+}
+.pa {
+  text-decoration: none;
+  color: black;
+  border-bottom: 2px solid transparent; /* Устанавливаем начальный цвет border-bottom как прозрачный */
+  transition: 0.3s ease;
+  margin-right: 40px;
+}
+.pa:hover{
+  border-color: rgba(4, 120, 87, 1); 
+
+}
+.pa:active {
+  border-color: green; /* Изменяем цвет border-bottom при клике */
+}
+
+.inputsecond1 {
+    height: 35px;
+    text-align: left;
+    font-size: 15px;
+    width: 425px;
+    border: 0;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    outline: 0;
+    outline-offset: 0;
+    background-color: rgb(255, 255, 255);
+  }
+  
+#iconsecond1  {
+    width: 26px;
+    height: 20px;
+    line-height: 26px;
+    margin-right: -36px;
+    margin-left: 10px;
+    margin-top: 7px;
+    position: relative;
+    font-size: 15px;
+    z-index: 1;
+    float: left;
+
+}
+
+.fa-solid + input {
+    padding-left: 30px;
+  }
+
+
+.Overflw{
+  height: 500px;
+  overflow-x: auto;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(184, 192, 204, 1);
+  border-radius: 0px;
+  margin: 2px;
+  box-shadow: none;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background: rgba(0, 0, 0, 0);
+}
+
+
+.popup-menu {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  width: 205px;
+  background-color:rgb(254, 254, 254);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 1000; /* Выше других элементов */
+}
+
+.popup-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todayDatee{
+  padding: 10px 10px;
+  background-color:rgba(247, 248, 249, 1);
+  margin-right: 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  color: rgb(59, 59, 59);
+  font-size: 15px;
+  margin-left: -15px;
+}
+.popup-menu li {
+  padding: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.popup-menu li:hover{
+  background-color: rgba(227, 229, 229, 0.87);
+  transition: 1s;}
+.choosee{
+  padding: 5px;
+  font-weight: 600;
+ 
+}
+.shooss{
+  margin-top: 5px;
+}
+
+#reportRDFid {
+  cursor: pointer;
+}
+.ppopp{
+  position: absolute;
+  height: 100px;
+  margin-left: 17.5%;
+}

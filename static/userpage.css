@@ -1,0 +1,188 @@
+body{
+    margin:50px;
+    margin-top:5px;
+    font-family: 'Manrope';
+    font-size: 15px;
+}
+.headerr{
+  display: flex;
+  margin-top:30px;
+  gap: 30%;
+}
+.loginout{
+  display: flex;
+  margin-bottom:20px;
+  justify-content: end;
+  align-items: center;
+  gap:5px; 
+  width: 1326px;
+}
+.textlogout{
+  text-decoration: none;
+  color: rgb(50, 50, 50);
+  letter-spacing:1px;
+  background-color: rgba(232, 232, 232, 0.67);
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-left: 15px;
+}
+.fioo{
+  font-weight: 600;
+  width: 160px;
+  height: 30px;
+}
+#iconn{
+ font-size: 25px;
+}
+.datetoday{
+  width: 150px;
+  margin: 0;
+margin-right: 10px;
+padding: 10px 15px;
+text-align: center;
+background-color: rgb(216, 246, 228);
+border-radius: 5px;}
+.timetoday{
+  margin: 0;
+  width: 80px;
+  margin-right: 60px;
+  padding: 10px 15px;
+  background-color: rgb(216, 246, 228);
+border-radius: 5px;
+text-align: center;
+}
+.title1{
+  margin:0px;
+  height: 41px;
+  font-size: 30px;
+ 
+}
+.textbow{
+  font-size: 16px;
+  margin-top: 5px;
+  padding-bottom: 10px;
+ color: rgba(100, 116, 139, 1);
+}
+
+.titleUser{
+  margin-top: 30px;
+    display: grid;
+    grid-template-rows: 61% 39%;
+    grid-gap: 0%;
+    margin: auto;
+    width: 800px;
+}
+
+#TextIntoButton1{
+  font-size: 20px;
+  letter-spacing:1px;
+  margin: auto 0px;
+}
+
+.buttonTM{
+  width: 180px;
+  height: 35;
+  position: relative;
+  background-color: rgb(23, 148, 112);
+  color:#fff;
+  border-radius: 5px;
+  border: 1.5px solid violet;
+  border-style: solid;
+  border-color: rgb(227, 227, 227);
+  display: flex;
+  padding: 0px 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonss{
+    width: 229px;
+    height: 44;
+    position: relative;
+    margin-left: 16px;
+    background-color: rgb(23, 148, 112);
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+  }
+
+#TextIntoButton{
+  font-family: 'Mulish';
+  font-size: 13px;
+  font-weight: 500;
+  
+  letter-spacing:1px;
+  margin: 0px 0px;
+}
+.second{
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  justify-content: center; /* Выравниваем содержимое горизонтально по центру */
+  align-items: center;
+  gap: 50px;
+}
+.fa-sharp{
+    font-size: 20px;
+    margin-left: 10px;
+}
+.fa-duotone{
+    font-size: 20px;
+    margin-left: 10px;
+}
+.fa-solid{
+    font-size: 20px;
+    margin-left: 10px;
+}
+.timing{
+    width: 100%;
+    border-radius: 10px;
+    padding: 40px 0px;
+    margin-top: 30px;
+    display: flex;
+    gap: 150px;
+    justify-content: center;
+    height: 250px;
+    background-color: rgb(246, 248, 249);
+    
+}
+.timer{
+ text-align: center;
+ font-size: 60px;
+}
+.timerwithbutton{
+  margin-left: 380px;
+  width: 430px;
+}
+.divforpereryv{
+  display: flex;
+  gap: 20px;
+  font-size: 24px;
+  width: 230px;
+}
+.titleslists{
+  display: flex;
+  justify-content: center;
+}
+.titles{
+  margin-top: 40px;
+  border: 0;
+  width: 284px;
+  color: rgba(100, 116, 139, 1);
+  padding: 20px 5px;
+  font-size: 15px;
+  outline: none;
+}
+.inp{
+  background-color: rgb(216, 246, 228);
+  border-top: 1px solid rgba(231, 234, 238, 1);
+  border-bottom:1px solid rgba(231, 234, 238, 1);
+  padding: 10px 5px;
+  margin-top: 0;
+}
+.inp2{
+  border-top: 1px solid rgba(231, 234, 238, 1);
+  border-bottom:1px solid rgba(231, 234, 238, 1);
+  padding: 10px 5px;
+  margin-top: 0;
+}

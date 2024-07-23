@@ -1,0 +1,82 @@
+{% extends "headerfooter.html" %}{% block hf %}{% load static %}
+
+            <!-- TABLE -->
+            <div class = "second">
+                <div class = "second1">
+                    <i id="iconsecond1" class="fa-solid fa-magnifying-glass"></i>
+                    <input class="inputsecond1" type="text" placeholder="Поиск сотрудника"/>
+                </div>
+            </div> 
+        <div class = "table">
+
+            <div class = "column">
+                <a class = "haedcolumn" >ФИО сотрудника</a>
+                <a class = "haedcolumn" >Дата работы</a>
+                <a class = "haedcolumn" >Время начала</a>
+                <a class = "haedcolumn" >Время завершения</a>
+                <a class = "haedcolumn" >Времени перерыва за день</a>
+                <a class = "haedcolumn" >Отработанные часы за день</a>
+            </div>
+            <div class = "Overflw">
+                {% for i in personal%}
+                {% for j in datevisit%}
+                {% if j.user == i.user%}
+                <div class = "column {{j.user.first_name}} {{j.user.last_name}}" id="columnInp" >
+                <input class = "valInp ll" type="text" readonly value = "{{j.user.first_name}}  {{j.user.last_name}}"/>
+                <input class = "valInp ll" type="text" readonly value = "{{j.date_invite.date}}"/>
+                <input class = "valInp ll" type="text" readonly value = "{{j.date_invite|time:"H:i:s"}}"/>
+                <input class = "valInp ll" type="text" readonly value = "{{j.date_finish|time:"H:i:s"}}"/>
+              
+                
+                <input class = "valInp ll" type="text" readonly value = "{{j.summ_pause_time}}"/>
+            
+                <input class = "valInp ll" type="text" readonly value = "{{j.summ_work_time}}"/>
+                
+                </div>
+                {%endif%}
+                {%endfor%}
+                
+               {%endfor%}
+                       
+            </div>
+             
+                  
+                
+              
+                  
+               
+              
+            </div>
+        </div>
+        
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Получаем элемент ввода
+// Получаем элемент ввода
+const inputElement = document.querySelector('.inputsecond1'); // Замените селектор на свой
+
+// Функция, которую нужно вызвать
+function handleInput() {
+    const userInput = inputElement.value; // Получаем введенное значение
+    // Получаем все элементы внутри Overflw
+    const overflwElements = document.querySelectorAll('.Overflw div.column');
+
+    // Проходим по всем элементам и показываем те, у которых класс соответствует введенному значению
+    for (let i = 0; i < overflwElements.length; i++) {
+        const div = overflwElements[i];
+        if (userInput === '' || div.classList.contains(userInput)) {
+            div.style.display = 'grid'; // Показываем элемент
+        } else {
+            div.style.display = 'none'; // Скрываем элемент
+        }
+    }
+}
+
+// Слушаем событие input
+inputElement.addEventListener('input', handleInput);
+
+
+})
+</script>
+{% endblock %}
+

@@ -1,0 +1,25 @@
+{% extends 'headerfooter.html' %}
+{% block hf %}
+  {% load static %}
+
+  <!-- TABLE -->
+
+  <div class="table">
+    <div class="column2">
+      <a class="haedcolumn">ФИО сотрудника</a>
+      <a class="haedcolumn">Номер телефона</a>
+      <a class="haedcolumn">Дата деактивации</a>
+    </div>
+
+    {% for i in personal %}
+      <div class="Overflw">
+        <div class="column2" id="columnInp">
+          <input class="valAddU tt ll" readonly id="last_name_data" value="{{ i.user.last_name }} {{ i.user.first_name }}" />
+          <input class="valAddU tt ll" readonly id="first_name_data" value="{{ i.number_of_phone }}" />
+          <input class="valAddU tt ll" readonly id="first_name_data" value="{{ i.date_deactivate }}" />
+
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

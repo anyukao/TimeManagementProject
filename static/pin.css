@@ -1,0 +1,62 @@
+
+#pincodeInput {
+    border: 1px solid black;
+    width: 80px;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 4px;
+    padding: 4px;
+}
+
+#pincodeInput input[type="text"] {
+    border: 1px solid black;
+    /* Добавляем черные границы к каждому символу */
+    width: 20px;
+    /* Устанавливаем ширину символа в 20px */
+    height: 20px;
+    /* Устанавливаем высоту символа в 20px */
+    margin-right: 4px;
+    /* Добавляем небольшой отступ между символами */
+}
+
+.div__pin{
+    display: flex;
+    position: relative;
+    width: 100%;
+    gap:10px;
+}
+
+.pincode {
+    text-align: center;
+}
+
+.pincode input[type="number"] {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    outline: none;
+    border: 1px solid rgb(211, 213, 222);
+    border-radius: 12px;
+    color: rgb(0, 0, 0);
+    font-size: 36px;
+    line-height: 36px;
+    text-align: center;
+     font-family: 'Ashkana', Arial, sans-serif;
+    font-weight: 600;
+    padding: 0px;
+}
+
+.pincode input[type="number"]::-webkit-outer-spin-button,
+.pincode input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+.pincode input[type="number"]:focus {
+    border: 2px solid rgba(4, 120, 87, 1);
+}

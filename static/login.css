@@ -1,0 +1,292 @@
+
+a{
+  text-decoration: none;
+  font-size: 14px;
+}
+/* .texts{
+    color:rgba(132, 132, 132, 1);
+    font-size: 14px;
+    margin-bottom: 30px;
+} */
+/* .back{
+  text-align: left;
+  margin-left: 170px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+} */
+/* .forandreg{
+  text-align: left;
+  margin-left: 85px;
+} */
+.gridy {
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+    background-color: rgba(227, 229, 229, 1);
+    margin: auto;
+    margin-top: 150px;
+    width: 40%;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 10px;
+    font-family: 'Manrope';
+
+}
+.err{
+  font-size: 12px;
+  font-weight: 200;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  margin-top: 30px;
+}
+.errr{
+  font-size: 12px;
+  font-weight: 200;
+  color: rgb(121, 29, 29);
+  margin: 0;
+  margin-top: 10px;
+}
+.phoneLabel1{
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.phoneLabelq{
+  font-size: 13px;
+  font-weight: 300;
+  margin: auto;
+  margin-top: 10px;
+}
+.phoneLabel{
+  font-size: 13px;
+  margin: auto;
+  background-color: transparent;
+  border: 0;
+  width: 100px;
+}
+.title{
+    color: rgba(4, 120, 87, 1);
+    letter-spacing:1px;
+    padding: 15px;
+  margin-bottom: 30px;
+    border-bottom: 2px solid rgba(4, 120, 87, 1); 
+}
+.textt::placeholder{
+  font-size: 15px;
+}
+#country-code::placeholder{
+  font-size: 15px;
+}
+.phone-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  border-radius: 5px;
+  border: 1.5px solid rgb(131, 132, 131);
+  height: 40px;
+  width: 280px;
+  background-color: rgb(255, 255, 255);
+}
+.phone_block{
+margin: auto;
+border-radius: 15px;
+}
+
+#country-code {
+  width: 40px;
+  padding: 10px;
+  height: 20px;
+  border: 0;
+  background-color: rgb(215, 215, 215);
+  outline: none;
+  font-size: 13px;
+  color: rgb(5, 74, 54);
+  border-right: 1.5px solid rgb(131, 132, 131);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+#phone{
+  width: 200px;
+  border: 0;
+  /* Добавляем границу инпуту с номером */
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+  padding: 10px;
+}
+#send-code {
+  width: 170px;
+  height: 40px;
+  background-color: rgba(4, 120, 87, 1);
+  color: white;
+  border-radius: 5px;
+  border: 0px;
+  margin-bottom: 10px;
+}
+
+#send-code:hover {
+  background-color: rgb(23, 134, 102);
+  transition:  0.6s ease;
+}
+
+
+.submitForgotePass{
+  text-align: left;
+}
+.subm{
+  margin: auto;
+  margin-top: 10px;
+  width: 290px;
+}
+.pridumaiteParol{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+.forgotPp{
+  border: none;
+  background: transparent;
+  color: rgb(58, 109, 84);
+}
+.forgotPp:hover{
+color: rgb(90, 90, 90);
+transition: 0.7s ease;
+cursor: pointer;
+
+}
+.passwordLogin{
+  width: 268px;
+  height: 40px;
+  border-radius: 5px;
+  border: 0;
+  padding-left: 10px;
+  margin: auto;
+  outline: none;
+}
+.passwordLogin::placeholder{
+  font-size: 15px;
+}
+
+
+
+.adminuser{
+  display: flex;
+  margin-top:40px;
+  margin-bottom:40px;
+  border-bottom: 3px solid rgba(231, 234, 238, 1);
+}
+.passPhoneBlock{
+margin: auto;
+margin-bottom: 20px;
+}
+.pa{
+  text-decoration: none;
+  color:rgb(87, 87, 87);
+  border-bottom: 2px solid transparent; /* Устанавливаем начальный цвет border-bottom как прозрачный */
+  transition:  0.3s ease;
+  font-size: 15px;
+  font-weight: 600;
+  width: 100%;
+  height: 30px;
+
+}
+.pa:hover{
+  border-color: rgba(4, 120, 87, 1); 
+}
+.Inputs1{
+    margin-bottom: 40px;
+}
+.InpText{
+    height: 35px;
+    font-size: 15px;
+    width: 425px;
+    border: 0;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    outline: 0;
+    outline-offset: 0;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    padding-left: 14px;
+}
+#InpTextkode{
+  width: 200px;
+
+}
+  .buttonCor{
+    width: 170px;
+    height: 40px;
+    background-color: rgba(4, 120, 87, 1);
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+    margin-bottom: 10px;
+  }
+ 
+  #TextIntoCor{
+    margin: 0px 0px;
+    font-size: 14px;
+    font-weight: 100;
+    letter-spacing:1px;
+  }
+  .buttonCor:hover{
+    background-color: rgb(23, 134, 102);
+    transition: background-color 0.6s ease;
+  }
+  
+  .buttonL{
+    background-color: rgba(4, 120, 87, 1);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Manrope';
+    outline: 0;
+    outline-offset: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: 0;
+    cursor: pointer;
+    height: 30px;
+  }
+  .buttonL:hover{
+    background-color: rgb(23, 134, 102);
+    transition:  0.6s ease;
+  }
+ .confirm{
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+ }
+
+#timer{
+  margin-bottom: 10px;
+}
+
+
+  .vost {
+    position: relative;
+    height: 18px;
+  }
+  
+  .spann {
+    position: absolute;
+    top: 50%;
+    font-size: 16px;
+    background-color: transparent;
+    transform: translateY(10%);
+    font-size: 18px;
+    margin-left:9px;
+  }
+  
+  .spann {
+    color: #ccc;
+    padding-left: 4px;
+  }
+  /* РЕГИСТРАЦИЯ */
+

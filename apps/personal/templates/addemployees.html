@@ -1,0 +1,305 @@
+{% load static %}
+<html>
+<head>
+    <title>Сотрудники</title>
+    <link rel="stylesheet" type="text/css" href="/static/adminpage.css">
+    <link rel="stylesheet" href="{% static '/fontawesome/css/fontawesome.min.css' %}">
+    <link href="{% static '/fontawesome/css/brands.css' %}" rel="stylesheet">
+    <link href="{% static '/fontawesome/css/solid.css' %}" rel="stylesheet">
+    <link href="{% static '/fontawesome/css/duotone.css' %}" rel="stylesheet">
+    <link href="{% static '/fontawesome/css/light.css' %}" rel="stylesheet">
+    <link href="{% static '/fontawesome/css/thin.css' %}" rel="stylesheet">
+
+</head>
+<body>
+        <button  onclick="window.location.href='/adminpage/'" class = "closeDiv">
+            <i class="fa-duotone fa-arrow-left closs"  ></i>
+        </button>
+        <div class="reblock">
+            <form method="post">
+                <div class = "columnAdd enterr">
+                    {% csrf_token %}              
+                        <input class = "valAddU tt counterr" readonly  value = ""/>      
+                        <input class = "valAddU" type="text"  name = "last_name" placeholder = "Фамилия"/>
+                        <input class = "valAddU" type="text"  name = "first_name" placeholder = "Имя"/>
+                        <input class = "valAddU" type="text"  name = "number_of_phone" placeholder = "Номер телефона"/>
+                        <div>
+                            <input class="valAddU datt" type="text" id="date_of_birth1" placeholder="Дата рождения"/>
+                            <input class="datee" type="date" name="date_of_birth" placeholder="Дата рождения" oninput="updateDateText1(this)"/>
+                            </div>
+                        <input class = "valAddU" type="text"  name = "inn" placeholder = "ИНН"/>
+                      <input class="buttonCreateUser" type="submit"  required name="updates" value="Создать" />
+                </div>
+            </form>
+            {{error_log}}
+            <div class = "lineblock"></div>
+            <div class = "columnAdd">
+                <input class = "valAddU tt counterr" readonly  value = "№"/>   
+                <input class = "valAddU tt" readonly  value = "Фамилия"/>
+                <input class = "valAddU tt"  readonly  value = "Имя"/>
+                <input class = "valAddU tt"   readonly value = "Номер телефона"/>
+                <input class = "valAddU datt tt"  readonly  value = "Дата рождения"/>
+                <input class = "valAddU tt"  readonly value = "ИНН"/>
+            </div>
+            <div class = "lineblock "></div>
+            <div class = "Overflwblock">
+                {% for i in personal%}
+                <div id = "{{i.id}}" class = "columnAdd enterrup seteditdata">
+                        <input class = "valAddU tt counterr ll" readonly  value = "{{forloop.counter}}"/>             
+                        <input class = "valAddU tt ll" readonly id="last_name_data"   value = "{{i.user.last_name}}"/>
+                        <input class = "valAddU tt ll" readonly  id="first_name_data" value =  "{{i.user.first_name}}"/>
+                        <input class = "valAddU tt ll" readonly id="number_of_phone_data" value =  "{{i.number_of_phone}}"/>
+                        <input class = "valAddU datt tt ll"  readonly id="date_of_birth_data" value = "{{i.date_of_birth}}"/>
+                        <input class = "valAddU tt ll"  readonly id="inn_data" value = "{{i.inn}}"/>
+                        <div class = "korzina" id = "{{i.id}}">
+                            <i class="fa-solid fa-trash-xmark koorr" id = "labAdd"></i> 
+                        </div>
+                        <div class = "editing" id = "{{i.id}}" data-user-id="{{i.id}}" >
+                            <i class="fa-duotone fa-pen-to-square" id = "labAdd"></i>
+                        </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+       
+        
+        <div class="parentmodaledit" id="parentmodaledit" >
+            <div class="modaledit">
+                <div class = "secondblockedit">
+                    <div class = "columnAdd edittingset">
+                        <input class = "valAddU tt" readonly  value = "Фамилия"/>
+                        <input class = "valAddU tt"  readonly  value = "Имя"/>
+                        <input class = "valAddU tt"   readonly value = "Номер телефона"/>
+                        <input class = "valAddU datt tt"  readonly  value = "Дата рождения"/>
+                        <input class = "valAddU tt"  readonly value = "ИНН"/>
+                       
+                    </div>
+                    <div class = "lineblock"></div>
+                </div>
+                <form method="post">
+                        {% csrf_token %}
+                    
+                    <div class="firstblockedit">
+                        <div  class = "columnAdd enterrup edittingset">
+                            
+                            <input type="text" style="display: none;" class = "setidedit" id= "setidedit" name="setidedit" readonly vlaue=""/>
+                            <input class="valAddU" type="text" id="first_name" name="first_name" placeholder="Фамилия"/>
+                            <input class="valAddU" type="text" id="last_name" name="last_name" placeholder="Имя"/>
+                            <input class="valAddU" type="text" id="number_of_phone" name="number_of_phone" placeholder="Номер телефона"/>
+                            <div>
+                            <input class="valAddU datt" type="text" id="date_of_birth" placeholder="Дата рождения"/>
+                            <input class="datee" type="date" name="date_of_birth" placeholder="Дата рождения" oninput="updateDateText(this)"/>
+                            </div>
+                            <input class="valAddU" type="text" id="inn" name="inn" placeholder="ИНН"/>
+                           
+                        </div>
+                        <div class = "buttonseditt">
+                            <input class="buttonCor edittt" type="submit" name="updates" required value="Изменить" />
+                            <span class=" cencell" id="closeedit">Отмена</span>
+                            </div>
+                        
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        
+        <form method="post">
+            <div class="formsl" id="divviews" >
+                <div class="textBoxes">
+                    {% csrf_token %}
+                    <!-- <input class="inp" list="phonesList" type="text" name=" " value="{{forloop.counter}}" /> -->
+        
+                    
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <div class = "contentdell">
+                                <div class = "firstdivatt">
+                                    <div class = "seconddivatt">
+                                         <i class="fa-light fa-circle-exclamation attana"></i>
+                                    </div>
+                                </div>
+                                
+                            <p class = "questiondel" style="display: flex; gap:10px">Вы действительно хотите удалить сотрудника <span class = "questiondel" id='first_name_info'></span>? </p>
+                            <p>После вашего подтверждения сотрудник будет деактивирован и попадет в список удаленных сотрудников.</p>
+                            </div>
+                            <div class = "delClose">
+                            <input type="text" style="display: none;" class = "setid" name="setid" readonly vlaue=""/>
+                            </div>
+                            <div class = "buttonsdell">
+                                <span id="close" class = "cenceldel">Отмена</span>
+                                <input class="delMyModal" type="submit" name="updates" required value="Удалить" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+</body>
+</html>
+<style>
+    body{
+        margin: 0;
+      }
+      
+</style>
+
+<script>
+    var modal = document.getElementById("myModal");
+    var parentmodaledit = document.getElementById("parentmodaledit");
+    
+    modal.style.display = "none";
+    var span = document.getElementById("close");
+    const setid = document.querySelector(".setid")
+    var span1 = document.getElementById("closeedit");
+    span1.onclick = function () {
+        parentmodaledit.style.display = "none";
+    }
+  
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Получаем все элементы с классом "korzina"
+        var korzinaElements = document.querySelectorAll(".korzina");
+    
+        // Добавляем обработчик события для каждого элемента
+        korzinaElements.forEach(function (element) {
+            element.addEventListener("click", function (event) {
+                // Останавливаем всплытие события, чтобы избежать срабатывания родительских обработчиков
+                event.stopPropagation();
+                
+                // Открываем модальное окно
+                
+                console.log(element.id)
+                
+                // Устанавливаем значение в input
+                setid.value = element.id;
+                var userId = element.id;
+                
+                var setEditDataDiv = document.getElementById(userId);
+                var first_name_data = setEditDataDiv.querySelector("#first_name_data");
+                var first_name = document.getElementById("first_name_info")
+                first_name.innerText = first_name_data.value
+                
+                modal.style.display ="block"
+               
+            });
+        });
+    });
+    
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+  
+</script>
+<script>
+
+    document.addEventListener('click', function(event) {
+        var target = event.target;
+      
+        // Проверяем, является ли цель клика частью таблицы
+        if (!target.closest('.columnAdd')) {
+          var allRows = document.querySelectorAll('.columnAdd');
+      
+          // Удаляем класс clicked у всех строк
+          allRows.forEach(function(row) {
+            row.classList.remove('clicked');
+          });
+        }
+      });
+      function updateDateText(dateInput) {
+        var dateText = document.getElementById('date_of_birth');
+        
+        if (dateText) {
+            dateText.value = formatDate(dateInput.value);
+        }
+    }
+    function updateDateText1(dateInput) {
+        var dateText = document.getElementById('date_of_birth1');
+        
+        if (dateText) {
+            dateText.value = formatDate(dateInput.value);
+        }
+    }
+    
+    function formatDate(dateString) {
+        var options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+        var formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
+        return formattedDate;
+    }
+    
+</script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        var korzinaElements = document.querySelectorAll('.korzina');
+
+        korzinaElements.forEach(function (element) {
+            
+            element.addEventListener('click', function () {
+                // Удаляем класс 'clicked' у всех ранее выбранных элементов
+                
+                allRows.forEach(function(row) {
+                    row.classList.remove('clicked');
+                });
+
+                // Добавляем класс 'clicked' к родительскому элементу (.columnAdd) текущего элемента
+                element.parentElement.classList.add('clicked');
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var editIcons = document.querySelectorAll(".editing");
+
+        editIcons.forEach(function(icon) {
+            icon.addEventListener("click", function() {
+
+                var userId = icon.id;
+                
+                var setEditDataDiv = document.getElementById(userId);
+                displayModalForUser(userId);
+                var setidedit = document.getElementById("setidedit")
+                setidedit.value = userId
+
+                var first_name_data = setEditDataDiv.querySelector("#first_name_data");
+                var first_name = document.getElementById("first_name")
+                first_name.value = first_name_data.value
+                
+                var last_name_data = setEditDataDiv.querySelector("#last_name_data");
+                var last_name = document.getElementById("last_name")
+                last_name.value = last_name_data.value
+                
+                var number_of_phone_data = setEditDataDiv.querySelector("#number_of_phone_data");
+                var number_of_phone = document.getElementById("number_of_phone")
+                number_of_phone.value = number_of_phone_data.value
+
+                var date_of_birth_data = setEditDataDiv.querySelector("#date_of_birth_data");
+                var date_of_birth = document.getElementById("date_of_birth")
+                date_of_birth.value = date_of_birth_data.value
+               
+                var inn_data = setEditDataDiv.querySelector("#inn_data");
+                var inn = document.getElementById("inn")
+                inn.value = inn_data.value
+
+
+            });
+        });
+
+        function displayModalForUser(userId) {
+            // Отобразите модальное окно
+            var modal = document.getElementById("parentmodaledit");
+            modal.style.display = "block";
+
+            // AJAX запрос для получения данных пользователя
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/employees/?user_id=" + userId, true);
+
+
+        }
+
+      
+    });
+</script>

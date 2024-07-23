@@ -1,0 +1,280 @@
+@import url("/static/home/css/fonts.css");
+html {
+    height: 100%;
+    display: table;
+    margin: auto;
+}
+
+.food-block{
+    width: 1280px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    direction: ltr;
+    max-width: 1280px;
+    height: 100%;
+    overflow: auto;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    line-height: 1.4;
+    font-family: 'Ashkana', Arial, sans-serif;
+    font-weight: 400;
+    background: rgb(255, 255, 255);
+    -webkit-font-smoothing: antialiased;
+    font-variant-ligatures: no-common-ligatures;
+}
+header {
+    width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+   
+}
+
+nav {
+  
+    display: flex;
+    
+}
+
+nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+nav a:hover {
+    background-color: #333333;
+    border-radius: 6px;
+    color:#ffe600;
+    transition: 3ms;
+}
+
+.login-button {
+    background-color: #333333;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+}
+.myaccont {
+    background-color: #333333;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+}
+.exitbutton{
+    background-color: #333333;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-left: 20px;
+    font-size: 16px;
+}
+.basket{
+    background-color: #ffee00;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-left: 20px;
+    font-size: 16px;
+}
+.basket:hover{
+    background-color: #2825fac0;
+}
+.login-button:hover,
+.myaccont:hover,
+.exitbutton:hover{
+    background-color: #414141c0;
+}
+#content {
+    padding: 20px;
+}
+
+.navigations {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.divnav__block{
+    margin-left: auto;
+}
+.logo{
+    width: 20%;
+}
+
+.logo__image{
+    width: 100%;
+}
+.divnavlog{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap:50px;
+    transition: box-shadow 0.3s ease; 
+}
+.divnav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap:50px;
+    transition: box-shadow 0.3s ease; 
+}
+
+.divnav.shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Нежная тень */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo__image {
+    margin-right: 10px; /* Добавьте отступ между изображением и текстом, если необходимо */
+}
+
+h4 {
+    margin: 0; /* Убрать отступы у заголовка, если необходимо */
+}
+
+.myaccont,
+.login-button {
+    margin-left: auto; /* Отодвигаем кнопки вправо */
+}
+
+.exitbutton {
+    color: white;
+    margin-left: 10px; /* Добавьте отступ между кнопкой и "Выйти", если необходимо */
+}
+
+
+
+
+
+.title{
+    margin: 0px 0px 8px;
+    color: rgb(0, 0, 0);
+    font-size: 36px;
+     font-family: 'Ashkana', Arial, sans-serif;
+    font-weight: 500;
+    line-height: 36px;
+}
+.direction{
+     font-family: 'Ashkana', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgb(92, 99, 112);
+    margin: 0px 0px 24px;
+}
+
+.input{
+    text-align: left;
+    display: block;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+    box-sizing: border-box;
+    position: relative;
+    height: 48px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    width: 100%;
+    border: 1px solid rgb(226, 226, 233);
+    resize: none;
+    font-size: 16px;
+    line-height: 20px;
+     font-family: 'Ashkana', Arial, sans-serif;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    font-variant-ligatures: no-common-ligatures;
+    transition-property: background-color, border-color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-out;
+}
+.input__big{
+    height: 56px;
+    padding: 16px;
+    border-radius: 12px;
+}
+.input__small{
+    height: 40px;
+    padding: 16px;
+    border-radius: 12px;
+}
+.input__small__width{
+    width: 30%;
+}
+
+.input__pin{
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+}
+.buttons{
+    outline: none;
+    border: none;
+    border-radius: 9999px;
+    text-align: center;
+     font-family: 'Ashkana', Arial, sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    transition-property: background-color, color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+}
+
+.medium{
+    height: 40px;
+    padding: 8px 20px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.small{
+   
+    padding: 8px 16px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.sumbit__button{
+    display: block; 
+    width: 100%;
+    margin-top: 16px;
+}
+
+.buttons:hover,
+.medium:hover,
+.small:hover,
+.sumbit__button:hover{
+    opacity: 0.8;
+}
+

@@ -1,0 +1,71 @@
+.food_block{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 ряда по 25% ширины */
+    gap: 4rem;
+}
+.food_block_bas{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 4 ряда по 25% ширины */
+    gap: 4rem;
+}
+
+.food_main{
+   width: 100%;
+}
+
+.food_image{
+    width: 100%;
+}
+.food_image_bascet{
+    width: 50%;
+}
+
+.food_p{
+    color:gray;
+    margin-top:0
+}
+
+.food_div{
+    color:rgb(73, 73, 73);
+    margin-top:0
+}
+
+.food_footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.food_price{
+    width:50%;
+}
+
+.food_button{
+    background-color: #ffee00;
+    color: rgb(0, 0, 0);
+    width:50%;
+    margin-top: 0px;
+}
+
+.delete_button{
+    background-color: rgb(153, 2, 2);
+    color: rgb(255, 255, 255);
+    width:50%;
+    margin-top: 0px;
+}
+.button{
+    outline: none;
+    border: none;
+    border-radius: 9999px;
+    text-align: center;
+     font-family: 'Ashkana', Arial, sans-serif;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+}

@@ -1,0 +1,97 @@
+{% extends "headerfooter.html" %}{% block hf %}{% load static %}
+
+
+            <!-- TABLE -->
+
+            <div class = "second">
+                <div class = "second1">
+                    <i id="iconsecond1" class="fa-solid fa-magnifying-glass"></i>
+                    <input class="inputsecond1" type="text" placeholder="Поиск сотрудника"/>
+                </div>
+            </div> 
+        <div class = "table1">
+
+            <div class = "column">
+                <a class = "haedcolumn" >ФИО сотрудника</a>
+                <a class = "haedcolumn">Номер телефона</a>
+                <a class = "haedcolumn">Дата</a>
+                <a class = "haedcolumn">Время прихода</a>
+                <a class = "haedcolumn">Время ухода</a>
+                <a class = "haedcolumn">Статус</a>
+            </div>
+
+            <div class = "Overflw">
+                
+                {% for i in personal %}
+
+                    <div class = "column {{i.user.first_name}}  {{i.user.last_name}}" id="columnInp" >
+                        <input class = "valInp ll" type="text" readonly value = "{{i.user.first_name}}  {{i.user.last_name}}"/>
+                        <input class = "valInp ll" type="text" readonly value = "{{i.number_of_phone}}"/>
+                        {% for j in datevisit%}
+                            {%if j.user == i.user%}
+                                {%if  j.date_invite == None%}
+                                    <input class = "valInp ll" type="text" readonly value = "-"/>
+                                {%else%}
+                                    <input class = "valInp ll" type="text" readonly value = "{{j.date_invite.date}}"/>
+                                {%endif%}
+                              
+                                    <input class = "valInp ll" type="text" readonly value = "{{j.date_invite|time:"H:i:s"}}"/>
+                            
+                                {%if j.date_finish == None%}
+                                    <input class = "valInp ll" type="text" readonly value = "-"/>
+                                {%else%}
+                                    <input class = "valInp ll" type="text" readonly value = "{{j.date_finish|time:"H:i:s"}}"/>
+                                {%endif%}
+                                {%if j.status == None or j.status == ""%}
+                                    <div class = "activeDiv" >
+                                        <input class = "active not" type="text" readonly value = "Не активен"/>
+                                    </div>
+                                {%elif j.status == "pause"%}
+                                    <div class = "activeDiv" >
+                                        <input class = "active pause" type="text" readonly value = "Перерыв"/>
+                                    </div>
+                                {%else%}
+                                    <div class = "activeDiv" >
+                                        <input class = "active" type="text" readonly value = "{{j.status}}"/>
+                                    </div>
+                                {%endif%}
+                                
+                            {% endif %}
+                            
+                        {%endfor%}
+                        
+                    </div>
+                {% endfor %}
+            </div>
+       
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            // Получаем элемент ввода
+        // Получаем элемент ввода
+        const inputElement = document.querySelector('.inputsecond1'); // Замените селектор на свой
+        
+        // Функция, которую нужно вызвать
+        function handleInput() {
+            const userInput = inputElement.value; // Получаем введенное значение
+            // Получаем все элементы внутри Overflw
+            const overflwElements = document.querySelectorAll('.Overflw div.column');
+        
+            // Проходим по всем элементам и показываем те, у которых класс соответствует введенному значению
+            for (let i = 0; i < overflwElements.length; i++) {
+                const div = overflwElements[i];
+                if (userInput === '' || div.classList.contains(userInput)) {
+                    div.style.display = 'grid'; // Показываем элемент
+                } else {
+                    div.style.display = 'none'; // Скрываем элемент
+                }
+            }
+        }
+        
+        // Слушаем событие input
+        inputElement.addEventListener('input', handleInput);
+        
+        
+        })
+        </script>
+{% endblock %}

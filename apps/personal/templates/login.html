@@ -1,0 +1,128 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Вход в систему</title>
+    <link rel="stylesheet" type="text/css" href="/static/login.css/">
+    <link href="{% static 'pin.css' %}" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Manrope' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Вход в систему</h1>
+
+        <div class="Inputs">
+
+
+            {% if number_of_phone == "" or check == "nopass" %}
+            <div class="phone_block">
+                <form method="post" class = "gridy">
+                    {% csrf_token %}
+                    <div class="phone-input">
+                        <input type="text" class="textt" id="country-code" value="+996" readonly>
+                        <input type="number" maxlength="9" class="textt" id="phone" name="phone" placeholder="Введите номер телефона"/>
+                    </div>
+                   
+                    <h4 class = "err">{{error_log}}</h4>
+                    
+                    <div class="confirm">
+                        <button type="submit" class="buttonL" name="login" id="login">Войти</button>
+                    </div>
+                    
+                </form>
+            </div>
+
+
+            {%elif check == "pass"%}
+
+            <div class="phone_block">
+                <form method="post" class = "gridy">
+                    {% csrf_token %}
+                    <div class="passPhoneBlock"><label class="phoneLabel">Ваш номер телефона:</label>
+                        <input class="phoneLabel" type="text" name="number_of_phone" value="{{number_of_phone}}"
+                            readonly>
+                    </div>
+                    <input class="passwordLogin" type="text" name="password" placeholder="Пароль">
+                    <h4 class = "phoneLabelq">{{error_log}}</h4>
+                    <div class="confirm">
+                        <button type="submit" class="buttonL" name="login" id="login">Войти</button>
+                    </div>
+                </form>
+            </div>
+
+
+
+            {%elif check == "newpass"%}
+
+            <div class="phone_block">
+                <form method="post" class = "gridy">
+                    {% csrf_token %}
+                    <div class="passPhoneBlock"><label class="phoneLabel">Ваш номер телефона:</label>
+                        <input class="phoneLabel" type="text" name="number_of_phone" value="{{number_of_phone}}"
+                            readonly/>
+                    </div>
+
+                    <div class="pridumaiteParol">
+                        <label class="phoneLabel1">Придумайте пароль ( мин. 6 символов )</label>
+                        <input class="passwordLogin" type="password" id="pass1" name="newpassword"
+                            placeholder="Введите пароль">
+                        <input class="passwordLogin" type="password" id="pass2" placeholder="Введите пароль еще раз">
+                    </div>
+                    <h4>{{error_log}}</h4>
+                    <div class="confirm">
+                        <input type="button" class="buttonL" name="login" id="logincheck" value="Войти" />
+                    </div>
+                </form>
+            </div>
+
+
+            {% else%}
+
+            <div class="phone_block">
+                <form method="post" class = "gridy">
+                    {% csrf_token %}
+                    <div class="passPhoneBlock"><label class="phoneLabel">На ваш номер:</label>
+                        <input class="phoneLabel" type="text" name="number_of_phone" value="{{number_of_phone}}"
+                            readonly/></br><label class="phoneLabel">отправлен код, проверьте устройство</label>
+                        
+                    </div>
+                    <div class="pincode">
+                        <input type="number" name="auth_code" id="pincodeInput1" class="pincodeInput" pattern="[0-9]"
+                            min="0" max="9" maxlength="1">
+                        <input type="number" name="auth_code" id="pincodeInput2" class="pincodeInput" pattern="[0-9]"
+                            min="0" max="9" maxlength="1">
+                        <input type="number" name="auth_code" id="pincodeInput3" class="pincodeInput" pattern="[0-9]"
+                            min="0" max="9" maxlength="1">
+                        <input type="number" name="auth_code" id="pincodeInput4" class="pincodeInput" pattern="[0-9]"
+                            min="0" max="9" maxlength="1">
+                    </div>
+                    <h4 class = "errr">{{error_log}}</h4>
+                    
+                    <div class="confirm">
+                        <div id="timer">Осталось времени: 59 секунд</div>
+                        <button type="submit" class="buttonL" name="login" id="login">Войти</button>
+                    </div>
+                    
+                    <form id="formreverse" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="number_user" value="{{number_user}}" style="display: none;">
+                        <button type="submit" class="buttons medium sumbit__button pinbutton" name="formreverse"
+                            style="display: none;" name="pincode-submit">Повторно выслать
+                            код</button>
+                    </form>
+            </div>
+
+            {% endif %}
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+<script src="{% static '/pin.js' %}"></script>
+<script src="{% static '/odinakovyeParoli.js' %}"></script>
+<script src="{% static '/dontrepaet.js' %}"></script>

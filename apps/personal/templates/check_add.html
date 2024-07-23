@@ -1,0 +1,275 @@
+<br>
+<style>
+  .button_logic{
+    border-radius: 3px;
+    background-color: darkgreen;
+    color:white
+  }
+</style>
+<button id="scanButton" class="button_logic button_logic_video" onclick="getLocation()">Нажмите для подтверждения действия</button>
+<h2 id="scaninfo"></h2>
+<br>
+
+<video id="video" width="100%" height="100%" autoplay style="display: none;"></video>
+<canvas id="canvas" width="100%" height="100%" style="display: none;"></canvas>
+
+
+<video class="button_logic_video" id="preview"></video>
+
+{% csrf_token %}
+
+<script src="
+https://cdn.jsdelivr.net/npm/geolib@3.3.4/lib/index.min.js
+"></script>
+<script src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+<script>
+  
+  </script>
+<script>
+  
+       
+        function scanQRCodeAndExtractData(data1) {
+            
+            const video = document.getElementById('preview');
+            video.style.display = 'block';
+            const scanner = new Instascan.Scanner({ video: video });
+            scanner.addListener('scan', function (content) {
+                // Остановить сканирование после успешного считывания
+                scanner.stop();
+               
+                // Обработать полученный контент
+                handleQRCodeContent(content, data1);
+            });
+
+            Instascan.Camera.getCameras().then(function (cameras) {
+                if (cameras.length > 0) {
+                    // Используем первую доступную камеру
+                   
+                    navigator.mediaDevices.getUserMedia({ video: { deviceId: { exact: cameras[1].deviceId } } })
+  .then(function (stream) {
+    // Камера доступна, запуск сканера
+    scanner.start(cameras[1]);
+  })
+  .catch(function (error) {
+    console.error('Ошибка при доступе к первой камере:', error);
+
+    // Если произошла ошибка, попробовать вторую камеру
+    navigator.mediaDevices.getUserMedia({ video: { deviceId: { exact: cameras[0].deviceId } } })
+      .then(function (stream) {
+        // Камера доступна, запуск сканера
+        scanner.start(cameras[0]);
+      })
+      .catch(function (error) {
+        console.error('Ошибка при доступе ко второй камере:', error);
+        // Обработка ошибки, например, вы можете вывести сообщение пользователю
+      });
+  });
+                   
+                } else {
+                    
+                    console.error('No cameras found.');
+                }
+            }).catch(function (e) {
+                console.error(e);
+                alert("Ваша отметка не отправлена, попробуйте ещё раз")
+            });
+        }
+      // Инициализация сканера при загрузке страницы
+      function startScanner2(data1){
+        document.getElementById('scaninfo').innerHTML = 'Пожалуйста, Ожидайте';
+        sendPostRequest(data1);
+        }
+      let videoStream;
+
+    async function startCamera() {
+      const video = document.getElementById('video');
+      const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+      video.srcObject = stream;
+      videoStream = stream;
+
+      return new Promise((resolve) => {
+        video.onloadedmetadata = () => {
+          resolve();
+        };
+      });
+    }
+
+    function stopCamera() {
+      if (videoStream) {
+        const tracks = videoStream.getTracks();
+        tracks.forEach(track => track.stop());
+      }
+    }
+
+    async function takeSnapshot() {
+      const video = document.getElementById('video');
+      const canvas = document.getElementById('canvas');
+      const context = canvas.getContext('2d');
+
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+      const detections = await faceapi.detectAllFaces(imageData).withFaceLandmarks().withFaceDescriptors();
+
+      if (detections.length > 0) {
+        const snapshot = canvas.toDataURL('image/png');
+        stopCamera();
+        
+      } else {
+        console.log('На фотографии не обнаружены лица');
+      }
+    }
+
+    async function startFaceDetection(data1) {
+      document.getElementById('scaninfo').innerHTML = 'Переключение камеры';
+      const video = document.getElementById('video');
+      video.style.display = 'block'; // Показываем видеоэлемент
+
+      await startCamera();
+
+      // Вызываем функцию takeSnapshot каждые 3 секунды
+      const intervalId = setInterval(takeSnapshot(), 3000);
+      
+      // Пример: останавливаем съемку через 10 секунд
+      setTimeout(() => {
+        clearInterval(intervalId);
+        stopCamera();
+        video.style.display = 'none';
+        
+         startScanner2(data1);
+         // Скрываем видеоэлемент
+      }, 2000);
+      
+      
+    }
+
+      // Обработчик события для кнопки "Сканировать QR-код"
+     
+        function startScanner1(data1){
+            
+            startFaceDetection(data1)
+           
+            }
+        function handleQRCodeContent(content,data1) {
+            // Получить последние три сегмента URL
+            var urlSegments = content.split('/');
+            var lastThreeSegments = urlSegments.slice(-3);
+        
+            
+            sendPostRequest(lastThreeSegments, data1);
+        }
+  
+    function sendPostRequest(data1) { 
+        // Создаем форму динамически
+        var csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+        var form = document.createElement('form');
+        form.method = 'post';
+       // Указываем URL-шаблон для обработки POST-запроса
+        var csrfInput = document.createElement('input');
+        csrfInput.type = 'hidden';
+        csrfInput.name = 'csrfmiddlewaretoken';
+        csrfInput.value = csrfToken;
+        form.appendChild(csrfInput);
+        // Добавляем поля в форму
+        
+        var param4Input = document.createElement('input');
+        param4Input.type = 'text';
+        param4Input.name = 'log1';
+        param4Input.value = data1[0];
+        form.appendChild(param4Input);
+
+        var param5Input = document.createElement('input');
+        param5Input.type = 'text';
+        param5Input.name = 'log2';
+        param5Input.value = data1[1];
+        form.appendChild(param5Input);
+        // Добавляем форму в body документа
+        
+        const canvas = document.getElementById('canvas');
+        const imageDataUrl = canvas.toDataURL('image/png'); 
+        var param6Input = document.createElement('input');
+        param6Input.type = 'text';
+        param6Input.name = 'image';
+        param6Input.value  = imageDataUrl;
+        form.appendChild(param6Input);
+       
+        // Добавляем форму в body документа
+        document.body.appendChild(form);
+        
+        // Отправляем форму
+        form.submit();
+        
+        // Удаляем форму из DOM, если это необходимо
+        document.body.removeChild(form);
+      }
+      
+function getLocation() {
+    document.getElementById('scaninfo').innerHTML = 'Начат процесс отметки';
+    document.getElementById('scanButton').style.display = "none";
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+     
+        alert("Геолокация не поддерживается вашим браузером.");
+    }
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, function(error) {
+            // Этот код будет выполнен, если пользователь запретил доступ к геолокации
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                container.querySelectorAll('.form_set').forEach(function(elem) {
+                    alert("Пользователь запретил доступ к геолокации");
+                    
+                });
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                container.querySelectorAll('.form_set').forEach(function(elem) {
+                    alert("Информация о местоположении недоступна");
+                });
+                    break;
+                case error.TIMEOUT:
+                container.querySelectorAll('.form_set').forEach(function(elem) {
+                 
+                    alert("Время ожидания запроса на получение местоположения истекло.");
+                });
+                
+                    break;
+                case error.UNKNOWN_ERROR:
+                container.querySelectorAll('.form_set').forEach(function(elem) {
+                    alert("Произошла неизвестная ошибка при получении местоположения.");
+                });
+                  
+                    break;
+            }
+        });
+        
+    } else {
+        alert("Геолокация не поддерживается вашим браузером.");
+    }
+}
+
+
+function showPosition(position) {
+    
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+
+    var inputLatitude = '42.845044';
+    var inputLongitude = '74.587034'; 
+	
+    var distance = geolib.getDistance(
+        { latitude: latitude, longitude: longitude },
+        { latitude: inputLatitude, longitude: inputLongitude }
+    );
+
+    var distanceInMeters = 198; 
+
+    
+  
+        data1= [latitude, longitude];
+        startScanner1(data1);
+    
+}
+</script>
